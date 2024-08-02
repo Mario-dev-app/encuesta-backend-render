@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
+const DB_LOCAL = 'mongodb://localhost:27017';
 
 app.use(cors());
 
@@ -14,7 +15,7 @@ app.listen(process.env.PORT || 3000, () => {
     console.log('Servidor express ONLINE');
 });
 
-mongoose.connect('mongodb+srv://marioperaltadev:PMYcONhCXwQHJfFn@cluster0.ky6lso2.mongodb.net/encuesta_satisfaccion').then(() => {
+mongoose.connect(process.env.MONGODB | DB_LOCAL).then(() => {
     console.log('Base de datos ONLINE');
 }).catch((err) => {
     console.log('Error en BD: ', err);
