@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const cors = require('cors');
-const DB_LOCAL = 'mongodb://localhost:27017';
+const DB_LOCAL = 'mongodb://localhost:27017/encuesta_satisfaccion';
 
 app.use(cors());
 
