@@ -15,7 +15,7 @@ app.listen(process.env.PORT || 3000, () => {
     console.log('Servidor express ONLINE');
 });
 
-mongoose.connect(process.env.MONGODB | DB_LOCAL).then(() => {
+mongoose.connect(process.env.MONGODB || DB_LOCAL).then(() => {
     console.log('Base de datos ONLINE');
 }).catch((err) => {
     console.log('Error en BD: ', err);
