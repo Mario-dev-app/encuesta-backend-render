@@ -29,7 +29,7 @@ const Encuesta = mongoose.model('encuesta', new Schema({
         required: true
     },
     num_factura: {
-        type: String,
+        type: Number,
         required: true,
         unique: true
     },

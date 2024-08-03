@@ -4,7 +4,6 @@ const Encuesta = require("../models/encuesta");
 const ExcelJS = require("exceljs");
 const fs = require("fs");
 const path = require("path");
-let counter = 0;
 
 //=====================
 // REGISTRAR ENCUESTA
@@ -12,19 +11,13 @@ let counter = 0;
 router.post("/encuesta", async (req, res) => {
   const body = req.body;
 
-  const ultimaEncuesta = await Encuesta.findOne().sort({ reg_date: -1 });
-  if(ultimaEncuesta) {
-    counter++
-  }
-  let num_factura = counter;
-
   Encuesta.create({
     codigo_cliente: 'C123456789',
     nombre_cliente: 'CLIENTE DE PRUEBA S.A.C.',
     tipo: 'SERV',
     correo_cliente: 'cliente@cliente.com',
     num_ov: '12345678',
-    num_factura: num_factura,
+    num_factura: new Date().getTime(),
     vendedor: 'PEPITO ENCANTADOR',
     sucursal: 'CALLAO',
     linea_negocio: '03',
